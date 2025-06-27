@@ -1,0 +1,16 @@
+weights = [ad["bid"] for ad in candidates]
+    selected = random.choices(candidates, weights=weights, k=1)[0]
+    return selected["image"]
+    
+    
+
+
+        if boxes and boxes.cls is not None:
+            for box in boxes:
+                x1, y1, x2, y2 = map(int, box.xyxy[0])
+                conf = float(box.conf[0])
+                cls = int(box.cls[0])
+                label = model.names[cls]
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                cv2.putText(frame, f"{label} {conf:.2f}", (x1, y1 - 10),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
